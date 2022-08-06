@@ -1,0 +1,35 @@
+<%= link_to 'Back', projects_path, class: 'btn btn-secondary mb-3' %>
+<div class="card">
+  <div class="card-header">
+    <h2 class='card-title d-flex justify-content-between mb-4'>
+      <span><%= @project.name %></span>
+      <% if(@project.user == current_user) %>
+        <%= link_to 'New Task', new_project_task_path(@project), class: 'btn btn-primary' %>
+      <% end %>  
+    </h2>
+  </div>  
+    <% @project.tasks.each do |task| %>
+      <% if task.persisted? %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+                            <span class="badge badge-<%= task.badge_color %> mb-3"><%= task.status %></span>
+
+            </div>
+            <h5 class='card-title mb-2'>
+              <span><%= task.name %></span>
+            </h5>
+            <p><%= task.description %></p>
+            <div>
+              <% if(@project.user == current_user) %>
+                <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-outline-info' %>
+                <%= link_to 'Destroy', [task.project, task], method: :delete,class: 'btn btn-outline-danger' %>
+              <% end %>  
+              </div>
+          </div>
+        </div>
+      <% end %>
+    <% end%>
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "PROJECT MANAGEMENT", root_path, class: "navbar-brand", id: "logo" %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <form class="form-inline my-2 my-lg-0">
+      <% if current_user %> 
+            
+        <li class="nav-item">
+          <%= link_to 'LOGOUT',  destroy_user_session_path, class: "btn btn-danger ", method: :delete %>
+        </li>
+    <% else %>  
+        <li class="nav-item">
+          <%= link_to 'LOGIN', new_user_session_path, class: "btn btn-success " %>
+        </li>
+    <% end %>  
+       
+
+      
+
+    </form>
+    
+  </div>
+</nav>

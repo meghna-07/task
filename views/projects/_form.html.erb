@@ -1,0 +1,32 @@
+<%= form_with(model: project,  class: "shadow p-3 bg-light rounded", local: true) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <div class="form-group row">
+    <%= f.label :name, "Name", class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Enter a name" %>
+    </div>
+    <%= f.label :name, "Description", class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= f.text_area :description, class: "form-control shadow rounded", placeholder: "Enter a description" %>
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-center">
+    <%= f.submit class: "btn btn-outline-success btn-lg" %>
+  </div>
+
+<% end %>
+
+
+

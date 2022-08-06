@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class='card-title d-flex justify-content-between mb-4'>
+      <span>Projects</span>
+      <%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+    </h2>
+
+    <% @projects.each do |project| %>
+        <div class="card project-card mb-3">
+          <div class="card-body">
+            
+            <h5 class='card-title'><b><%= project.name %></b></h5>
+            <p class='card-text'><%= project.description %></p>
+            <%= link_to "View tasks", project_path(project), class: "btn btn-outline-success" %>
+            <% if(project.user == current_user) %>
+              <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-outline-info' %>
+              <%= link_to 'Destroy', @project, method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure?' } %>
+            <% end %>  
+            <div class="card-header">
+            <% if project.user %>
+              by <%= project.user.email%>
+            <% end %>
+           </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

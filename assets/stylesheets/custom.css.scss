@@ -1,0 +1,27 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+  background-color: grey;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
